@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-//API
+//API die ik ga gebruiken
 //https://restcountries.com/v3.1/name/{name}
 
-
+//Stappenplan
 //Er moet een search functie gemaakt worden
 //-Als eerste moet er een event listener gezet worden op het invoerveld
 //-De input van die listener moet op een variabele gezet worden
@@ -99,13 +99,3 @@ async function fetchCountry(searchInput) {
     }
 }
 
-
-
-// console.log(countryData[0])
-// console.log(countryData[0].name)
-// console.log(countryData[0].flags.png)
-// console.log(countryData[0].currencies[0].name)
-// console.log(countryData[0].capital)
-// console.log(countryData[0].population)
-// console.log(countryData[0].languages[0].name)
-// console.log(countryData[0].subregion)
