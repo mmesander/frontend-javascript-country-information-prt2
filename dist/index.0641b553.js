@@ -577,6 +577,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 //Deze string moet geinjecteerd worden in de DIV
 const searchField = document.getElementById("search-field");
 const submitForm = document.getElementById("submit-form");
+const searchData = document.getElementById("search-data");
 let searchInput = "";
 //Kan ook op deze manier geschreven worden:
 // searchField.addEventListener('input', (e) => {
@@ -600,18 +601,37 @@ async function fetchCountry(searchInput) {
     try {
         const response = await (0, _axiosDefault.default).get(`${ENDPOINT}${searchInput}`);
         const countryData = response.data;
-        console.log(countryData[0]);
-        console.log(countryData[0].name);
-        console.log(countryData[0].flags.png);
-        console.log(countryData[0].currencies[0].name);
-        console.log(countryData[0].capital);
-        console.log(countryData[0].population);
-        console.log(countryData[0].languages[0].name);
-        console.log(countryData[0].subregion);
+        let currencyString = "";
+        let languageString = "";
+        if (countryData[0].currencies.length === 1) currencyString = countryData[0].currencies[0].name + "'s";
+        else for(let i = 0; i < countryData[0].currencies.length; i++){
+            currencyString += countryData[0].currencies[i].name + "'s";
+            if (i !== countryData[0].currencies.length - 1) currencyString += " and ";
+        }
+        if (countryData[0].languages.length === 1) languageString = countryData[0].languages[0].name;
+        else for(let i = 0; i < countryData[0].languages.length; i++){
+            languageString += countryData[0].languages[i].name;
+            if (i !== countryData[0].languages.length - 1) languageString += " and ";
+        }
+        searchData.innerHTML = `
+        <img src="${countryData[0].flags.png}" alt="country flag">
+        <span>${countryData[0].name}</span>
+        <div class="flat-line"></div>
+        <p>${countryData[0].name} is situated in ${countryData[0].subregion}. It has a population of ${countryData[0].population} people</p>
+        <p>The capital is ${countryData[0].capital} and you can pay with ${currencyString}</p>
+        <p>They speak ${languageString}</p>
+        `;
     } catch (e) {
         console.log(e);
     }
-}
+} // console.log(countryData[0])
+ // console.log(countryData[0].name)
+ // console.log(countryData[0].flags.png)
+ // console.log(countryData[0].currencies[0].name)
+ // console.log(countryData[0].capital)
+ // console.log(countryData[0].population)
+ // console.log(countryData[0].languages[0].name)
+ // console.log(countryData[0].subregion)
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1589,7 +1609,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 // temporary hotfix to avoid circular references until AxiosURLSearchParams is refactored
 var _formDataJs = require("../platform/node/classes/FormData.js");
 var _formDataJsDefault = parcelHelpers.interopDefault(_formDataJs);
-var Buffer = require("2f890a5e3db3cbc9").Buffer;
+var Buffer = require("5759ad315cc1e8cd").Buffer;
 "use strict";
 /**
  * Determines if the given thing is a array or js object.
@@ -1744,15 +1764,15 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
 }
 exports.default = toFormData;
 
-},{"2f890a5e3db3cbc9":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fCgem":[function(require,module,exports) {
+},{"5759ad315cc1e8cd":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fCgem":[function(require,module,exports) {
 /*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */ /* eslint-disable no-proto */ "use strict";
-var base64 = require("adb2eb9036e09483");
-var ieee754 = require("eeeb000a5e13d36c");
+var base64 = require("4b1164ada2984f7e");
+var ieee754 = require("dcfd66e6ef28ba25");
 var customInspectSymbol = typeof Symbol === "function" && typeof Symbol["for"] === "function" // eslint-disable-line dot-notation
  ? Symbol["for"]("nodejs.util.inspect.custom") // eslint-disable-line dot-notation
  : null;
@@ -2974,7 +2994,7 @@ var hexSliceLookupTable = function() {
     return table;
 }();
 
-},{"adb2eb9036e09483":"eIiSV","eeeb000a5e13d36c":"cO95r"}],"eIiSV":[function(require,module,exports) {
+},{"4b1164ada2984f7e":"eIiSV","dcfd66e6ef28ba25":"cO95r"}],"eIiSV":[function(require,module,exports) {
 "use strict";
 exports.byteLength = byteLength;
 exports.toByteArray = toByteArray;
