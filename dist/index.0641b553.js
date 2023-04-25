@@ -578,6 +578,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const searchField = document.getElementById("search-field");
 const submitForm = document.getElementById("submit-form");
 const searchData = document.getElementById("search-data");
+const searchError = document.getElementById("form-error-message");
 let searchInput = "";
 //Kan ook op deze manier geschreven worden:
 // searchField.addEventListener('input', (e) => {
@@ -622,7 +623,8 @@ async function fetchCountry(searchInput) {
         <p>They speak ${languageString}</p>
         `;
     } catch (e) {
-        console.log(e);
+        if (searchInput === "") searchError.textContent = "";
+        else searchError.textContent = "Dit land kunnen we niet vinden, probeer het eens in het Engels!";
     }
 } // console.log(countryData[0])
  // console.log(countryData[0].name)

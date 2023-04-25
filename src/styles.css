@@ -84,7 +84,7 @@ span {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    position: relative;
 }
 
 .search-field {
@@ -139,6 +139,15 @@ span {
 
 .search-data-container img {
     width: 40px;
+}
+
+#form-error-message {
+    color: red;
+    font-weight: bold;
+    min-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 /* ---------------------- 4.3 Footer -------------------------- */

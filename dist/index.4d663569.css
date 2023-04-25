@@ -55,8 +55,8 @@ span {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
   display: flex;
+  position: relative;
 }
 
 .search-field {
@@ -110,6 +110,15 @@ span {
 
 .search-data-container img {
   width: 40px;
+}
+
+#form-error-message {
+  color: red;
+  min-height: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.4d663569.css.map */
